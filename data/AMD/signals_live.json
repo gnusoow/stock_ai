@@ -1,0 +1,19 @@
+[
+  {
+    "symbol": "AMD",
+    "date": "2025-10-28",
+    "price": 258.010009765625,
+    "action": "buy",
+    "reason": [
+      "ML_prob_top30"
+    ]
+  },
+  {
+    "date": "2025-10-28",
+    "action": "sell",
+    "price": 258.010009765625,
+    "reason": [
+      "proba<=0.45"
+    ]
+  }
+]

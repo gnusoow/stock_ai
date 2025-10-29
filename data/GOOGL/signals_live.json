@@ -1,0 +1,20 @@
+[
+  {
+    "symbol": "GOOGL",
+    "date": "2025-10-28",
+    "price": 267.4700012207031,
+    "action": "buy",
+    "reason": [
+      "ML_prob_top30"
+    ]
+  },
+  {
+    "symbol": "GOOGL",
+    "date": "2025-10-28",
+    "price": 267.4700012207031,
+    "action": "sell",
+    "reason": [
+      "ML_prob_top30"
+    ]
+  }
+]

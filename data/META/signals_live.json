@@ -1,0 +1,19 @@
+[
+  {
+    "symbol": "META",
+    "date": "2025-10-28",
+    "price": 751.4400024414062,
+    "action": "buy",
+    "reason": [
+      "ML_prob_top30"
+    ]
+  },
+  {
+    "date": "2025-10-28",
+    "action": "sell",
+    "price": 751.4400024414062,
+    "reason": [
+      "SMA20<SMA60"
+    ]
+  }
+]

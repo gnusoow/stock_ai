@@ -1,18 +1,32 @@
 # C:\stock_ai\src\web\app.py
 import json
 from pathlib import Path
-import pandas as pd
 import numpy as np
 import streamlit as st
 import plotly.graph_objects as go
 from datetime import datetime
+# === Cloud fallback & refresh-safe imports ===
 import os
+import pandas as pd
+import yfinance as yf  # ✅ 반드시 이 이름(yf)으로 임포트
+
+# st_autorefresh가 없더라도 앱이 죽지 않게 안전하게 임포트
+try:
+    from streamlit_autorefresh import st_autorefresh
+except Exception:
+    def st_autorefresh(*args, **kwargs):
+        return None  # no-op
+
 DATA_DIR = os.environ.get("DATA_DIR", "data")
 CLOUD_MODE = not os.path.exists(DATA_DIR)
+
+import streamlit as st
+
 if CLOUD_MODE:
     st.warning("⚠️ 데이터 폴더가 없어서 yfinance로 최근 데이터를 불러옵니다.")
-    SYMS = ["AAPL", "MSFT", "GOOGL", "AMZN", "NVDA", "TSLA", "META", "AVGO", "ASML", "AMD"]
+    SYMS = ["AAPL","MSFT","GOOGL","AMZN","NVDA","TSLA","META","AVGO","ASML","AMD"]
     try:
+        # 최근 1개월 종가
         prices = yf.download(SYMS, period="1mo", interval="1d", auto_adjust=True, progress=False)["Close"]
         st.session_state["data_mode"] = "cloud"
         st.session_state["prices"] = prices
@@ -21,6 +35,7 @@ if CLOUD_MODE:
 else:
     st.session_state["data_mode"] = "local"
     st.session_state["prices"] = None
+
 
 from streamlit_autorefresh import st_autorefresh
 

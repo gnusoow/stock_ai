@@ -7,3 +7,4 @@ yfinance>=0.2.43
 matplotlib>=3.7.0
 pyyaml>=6.0.1
 python-dateutil
+plotly>=5.22.0

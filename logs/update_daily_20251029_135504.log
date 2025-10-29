@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "C:\stock_ai\src\update_daily.py", line 32, in <module>
-    main()
-    ~~~~^^
-  File "C:\stock_ai\src\update_daily.py", line 26, in main
-    print("\U0001f680 Daily update start:", datetime.datetime.now())
-    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-UnicodeEncodeError: 'cp949' codec can't encode character '\U0001f680' in position 0: illegal multibyte sequence

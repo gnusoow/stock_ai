@@ -1,0 +1,19 @@
+# 기본 설정
+symbols:
+  - AAPL
+  - MSFT
+  - GOOGL
+  - AMZN
+  - NVDA
+  - TSLA
+  - META
+  - AVGO
+  - ASML
+  - AMD
+
+backtest:
+  k_top_percent: 0.30    # 상위 30%만 채택
+  fee_bps: 5             # 왕복 비용 (basis points)
+  min_hold: 3            # 최소 보유 일수
+  lookahead_days: 5      # target_5d 산출에 사용
+  test_window_days: 180  # 최근 6개월 테스트

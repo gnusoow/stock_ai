@@ -1,0 +1,9 @@
+model: rf
+hyperparams:
+  n_estimators: 200
+  max_depth: 9
+strategy:
+  k_pct: 0.3875
+  min_hold: 5
+  fee_bps: 2
+  lambda_turn: 0.206

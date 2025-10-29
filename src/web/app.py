@@ -7,6 +7,21 @@ import streamlit as st
 import plotly.graph_objects as go
 from datetime import datetime
 import os
+DATA_DIR = os.environ.get("DATA_DIR", "data")
+CLOUD_MODE = not os.path.exists(DATA_DIR)
+if CLOUD_MODE:
+    st.warning("⚠️ 데이터 폴더가 없어서 yfinance로 최근 데이터를 불러옵니다.")
+    SYMS = ["AAPL", "MSFT", "GOOGL", "AMZN", "NVDA", "TSLA", "META", "AVGO", "ASML", "AMD"]
+    try:
+        prices = yf.download(SYMS, period="1mo", interval="1d", auto_adjust=True, progress=False)["Close"]
+        st.session_state["data_mode"] = "cloud"
+        st.session_state["prices"] = prices
+    except Exception as e:
+        st.error(f"데이터 로드 실패: {e}")
+else:
+    st.session_state["data_mode"] = "local"
+    st.session_state["prices"] = None
+
 from streamlit_autorefresh import st_autorefresh
 
 
